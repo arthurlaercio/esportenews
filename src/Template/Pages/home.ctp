@@ -47,7 +47,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     
     <title>ESPORTE NEWS</title>
     <!--Oswald Font -->
-    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'> -->
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'> 
     
     <?= $this->Html->css('tooltipster.css') ?>
     <!-- home slider-->
@@ -76,7 +76,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 			<div class="wrapper header">
 				<div class="clearfix header_top">
 					<div class="clearfix logo floatleft">
-						<a href=""><h1><span>Yellow</span> Blog</h1></a>
+						<a href=""><h1><span>Esporte</span> News</h1></a>
 					</div>
 					<div class="clearfix search floatright">
 						<form>
