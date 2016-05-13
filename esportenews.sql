@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 12-Maio-2016 às 13:04
+-- Generation Time: 13-Maio-2016 às 17:28
 -- Versão do servidor: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -75,7 +75,8 @@ CREATE TABLE IF NOT EXISTS `noticias` (
   `tag_time_id` int(11) NOT NULL,
   `tag_campeonato_id` int(11) NOT NULL,
   `data_publicacao` datetime NOT NULL,
-  `imagem` mediumtext NOT NULL
+  `imagem` mediumtext NOT NULL,
+  `ativa` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -117,6 +118,21 @@ CREATE TABLE IF NOT EXISTS `times` (
   `descricao` varchar(30000) NOT NULL,
   `nome_estadio` varchar(100) NOT NULL,
   `imagem` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuarios`
+--
+
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `senha` varchar(50) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `tipo_usuario` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -166,6 +182,12 @@ ALTER TABLE `times`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -203,6 +225,11 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT for table `times`
 --
 ALTER TABLE `times`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `usuarios`
+--
+ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
