@@ -49,7 +49,14 @@
                                 ['controller' => 'Pages', 'action' => 'dashboard', '_full' => true]
                             );
                         ?>
-                    </li>                   
+                    </li>
+                    <li >
+                        <?php echo $this->Html->link(
+                                'Dashboard Usuários',
+                                ['controller' => 'Usuarios', 'action' => 'dashboardUsuario', '_full' => true]
+                            );
+                        ?>
+                    </li>
                     <li >
                         <?php echo $this->Html->link(
                                 'HomePage',
@@ -66,13 +73,28 @@
                     </li>
                     <li >
                         <?php echo $this->Html->link(
+                                'Editar usuário',
+                                ['controller' => 'Usuarios', 'action' => 'editar',$usuario->id, '_full' => true]
+                            );
+                        ?>
+                    </li>
+                    <li >
+                        <?php echo $this->Html->link(
+                                'Excluir usuário',
+                                ['controller' => 'Usuarios', 'action' => 'delete',$usuario->id, '_full' => true],
+                                ['confirm' => __('Tem certeza que deseja deletar?', $usuario->id)]
+                            );
+                        ?>
+                    </li>
+                    <li >
+                        <?php echo $this->Html->link(
                                 'Sobre nós',
                                 ['controller' => 'Pages', 'action' => '', '_full' => true]
                             );
                         ?>
                     </li>             
                 </ul>
-                            </div>
+            </div>
 
         </nav>
 
@@ -87,50 +109,36 @@
                     <div class="row">
                         <div class="col-lg-12 ">
                             <div class="alert alert-info">
-                                 <strong>Lista de usuários </strong>
+                                 <strong>Detalhes do usuário </strong>
                             </div>                       
                         </div>
-                    </div>                
-                    <div class="usuarios index large-12 medium-10 columns content">
-                        
-                        <table cellpadding="0" cellspacing="0">
-                            <thead>
+                    </div> 
+                    <div class="row">
+                        <div class="col-lg-12 ">
+                            <table class="vertical-table">
                                 <tr>
-                                    <th><?= $this->Paginator->sort('id') ?></th>
-                                    <th><?= $this->Paginator->sort('nome') ?></th>
-                                    <th><?= $this->Paginator->sort('email') ?></th>
-                                    <th><?= $this->Paginator->sort('username') ?></th>
-                                    <th><?= $this->Paginator->sort('tipo_usuario') ?></th>
-                                    <th class="actions"><?= __('Ações') ?></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($usuarios as $usuario): ?>
-                                <tr>
+                                    <th><?= __('Id') ?></th>
                                     <td><?= $this->Number->format($usuario->id) ?></td>
-                                    <td><?= h($usuario->nome) ?></td>
-                                    <td><?= h($usuario->email) ?></td>                                    
-                                    <td><?= h($usuario->username) ?></td>
-                                    <td><?= h($usuario->tipo_usuario) ?></td>
-                                    <td class="actions">
-                                        <?= $this->Html->link(__('Ver'), ['action' => 'visualizar', $usuario->id]) ?>
-                                        <?= $this->Html->link(__('Editar'), ['action' => 'editar', $usuario->id]) ?>
-                                        <?= $this->Form->postLink(__('Deletar'), ['action' => 'delete', $usuario->id], ['confirm' => __('Tem certeza que deseja deletar?', $usuario->id)]) ?>
-                                    </td>
                                 </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                        <div class="paginator">
-                            <ul class="pagination">
-                                <?= $this->Paginator->prev('< ' . __('anterior')) ?>
-                                <?= $this->Paginator->numbers() ?>
-                                <?= $this->Paginator->next(__('próximo') . ' >') ?>
-                            </ul>
-                            <p><?= $this->Paginator->counter() ?></p>
+                                <tr>
+                                    <th><?= __('Nome') ?></th>
+                                    <td><?= h($usuario->nome) ?></td>
+                                </tr>
+                                <tr>
+                                    <th><?= __('Email') ?></th>
+                                    <td><?= h($usuario->email) ?></td>
+                                </tr>                              
+                                <tr>
+                                    <th><?= __('Username') ?></th>
+                                    <td><?= h($usuario->username) ?></td>
+                                </tr>
+                                <tr>
+                                    <th><?= __('Tipo Usuario') ?></th>
+                                    <td><?= h($usuario->tipo_usuario) ?></td>
+                                </tr>                              
+                            </table>
                         </div>
                     </div>
-                    
              <!-- /. PAGE INNER  -->
             </div>
          <!-- /. PAGE WRAPPER  -->
