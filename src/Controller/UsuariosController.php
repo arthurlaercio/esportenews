@@ -33,6 +33,7 @@ class UsuariosController extends AppController
      */
     public function view($id = null)
     {
+        
         $usuario = $this->Usuarios->get($id, [
             'contain' => []
         ]);
@@ -104,5 +105,9 @@ class UsuariosController extends AppController
             $this->Flash->error(__('The usuario could not be deleted. Please, try again.'));
         }
         return $this->redirect(['action' => 'index']);
+    }
+    
+    public function login(){
+        
     }
 }
