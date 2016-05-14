@@ -110,4 +110,8 @@ class UsuariosController extends AppController
     public function login(){
         
     }
+    
+    public function dashboardUsuario(){
+        
+    }
 }

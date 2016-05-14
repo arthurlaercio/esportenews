@@ -88,7 +88,7 @@
 
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                             <div class="div-square">
-                                  <a href="/usuarios/dashboard_usuario" >
+                                  <a href="blank.html" >
                                       <i class="fa fa-envelope-o fa-5x"></i>
                                       <h4>Usuários</h4>
                                   </a>
@@ -97,7 +97,7 @@
                         </div>                  
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                             <div class="div-square">
-                                  <a href="/times/dashboard_time" >
+                                  <a href="blank.html" >
                                       <i class="fa fa-users fa-5x"></i>
                                       <h4>Times</h4>
                                   </a>
@@ -106,7 +106,7 @@
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                                 <div class="div-square">
-                                    <a href="/campeonatos/dashboard_campeonato" >
+                                    <a href="blank.html" >
                                         <i class="fa fa-wechat fa-5x"></i>
                                         <h4>Campeonatos</h4>
                                     </a>
@@ -114,7 +114,7 @@
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                             <div class="div-square">
-                                  <a href="/noticias/dashboard_noticia" >
+                                  <a href="blank.html" >
                                       <i class="fa fa-envelope-o fa-5x"></i>
                                       <h4>Noticias</h4>
                                   </a>
@@ -123,7 +123,7 @@
                         </div> 
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                             <div class="div-square">
-                                  <a href="/mensagens/dashboard_mensagem" >
+                                  <a href="blank.html" >
                                       <i class="fa fa-envelope-o fa-5x"></i>
                                       <h4>Mensagens</h4>
                                   </a>
