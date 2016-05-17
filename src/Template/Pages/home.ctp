@@ -108,7 +108,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 							</li>
 							<li><a href="">Vôlei</a></li>
 							<li><a href="">Outros esportes</a></li>
-							<li><a href="">Sobre nós</a></li>
+							<li><a href="/pages/sobre">Sobre nós</a></li>
 							<li><a href="">Contate-nos</a></li>
 						</ul>
 					</nav>

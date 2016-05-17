@@ -66,5 +66,9 @@ class PagesController extends AppController
     public function dashboard(){
         
     }
+    
+    public function sobre(){
+        
+    }
 
 }
