@@ -24,3 +24,14 @@ the setup traffic lights.
 
 Read and edit `config/app.php` and setup the 'Datasources' and any other
 configuration relevant for your application.
+
+
+Email integrantes
+
+arthur.laercio@gmail.com
+
+O SQL está na raiz do projeto.
+
+Para a instalar o projeto, executar os passos acima utilizando o composer, criar um projeto novo e depois pegar as pastas vendor, tmp e log.
+
+Para acessar a home digitar localhost:8765
