@@ -34,7 +34,7 @@
                 </div>
               
                 <span class="logout-spn" >
-                  <a href="#" style="color:#fff;">LOGOUT</a>  
+                  <a href="/usuarios/login" style="color:#fff;">LOGOUT</a>  
 
                 </span>
             </div>
@@ -59,6 +59,13 @@
                     </li>
                     <li >
                         <?php echo $this->Html->link(
+                                'Novo time',
+                                ['controller' => 'Times', 'action' => 'add', '_full' => true]
+                            );
+                        ?>
+                    </li>
+                    <li >
+                        <?php echo $this->Html->link(
                                 'Sobre nós',
                                 ['controller' => 'Pages', 'action' => '', '_full' => true]
                             );
@@ -73,63 +80,61 @@
             <div id="page-inner">
                     <div class="row">
                         <div class="col-lg-12">
-                         <h2>ADMIN DASHBOARD</h2>   
+                         <h2>TIMES</h2>   
                         </div>
                     </div>              
                       <hr />
                     <div class="row">
                         <div class="col-lg-12 ">
                             <div class="alert alert-info">
-                                 <strong>Bem vindo ! </strong>
+                                 <strong>Lista de times </strong>
                             </div>                       
                         </div>
                     </div>                
-                    <div class="row text-center pad-top">
-
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                            <div class="div-square">
-                                  <a href="blank.html" >
-                                      <i class="fa fa-envelope-o fa-5x"></i>
-                                      <h4>Usuários</h4>
-                                  </a>
-                            </div>
-
-                        </div>                  
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                            <div class="div-square">
-                                  <a href="blank.html" >
-                                      <i class="fa fa-users fa-5x"></i>
-                                      <h4>Times</h4>
-                                  </a>
-                            </div>
-
+                    <div class="times index large-12 medium-10 columns content">
+                        
+                        <table cellpadding="0" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th><?= $this->Paginator->sort('id') ?></th>
+                                    <th><?= $this->Paginator->sort('nome') ?></th>
+                                    <th><?= $this->Paginator->sort('estado') ?></th>
+                                    <th><?= $this->Paginator->sort('pais') ?></th>
+                                    <th><?= $this->Paginator->sort('titulo') ?></th>
+                                    <th><?= $this->Paginator->sort('descricao') ?></th>
+                                    <th><?= $this->Paginator->sort('nome_estadio') ?></th>
+                                    <th><?= $this->Paginator->sort('imagem') ?></th>
+                                    <th class="actions"><?= __('Ações') ?></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($times as $time): ?>
+                                <tr>
+                                    <td><?= $this->Number->format($time->id) ?></td>
+                                    <td><?= h($time->nome) ?></td>
+                                    <td><?= h($time->estado) ?></td>
+                                    <td><?= h($time->pais) ?></td>
+                                    <td><?= h($time->titulo) ?></td>
+                                    <td><?= h($time->descricao) ?></td>
+                                    <td><?= h($time->nome_estadio) ?></td>
+                                    <td><?= h($time->imagem) ?></td>
+                                    <td class="actions">
+                                        <?= $this->Html->link(__('Ver'), ['action' => 'view', $time->id]) ?>
+                                        <?= $this->Html->link(__('Editar'), ['action' => 'edit', $time->id]) ?>
+                                        <?= $this->Form->postLink(__('Deletar'), ['action' => 'delete', $time->id], ['confirm' => __('Tem certeza que deseja deletar?', $time->id)]) ?>
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                        <div class="paginator">
+                            <ul class="pagination">
+                                <?= $this->Paginator->prev('< ' . __('previous')) ?>
+                                <?= $this->Paginator->numbers() ?>
+                                <?= $this->Paginator->next(__('next') . ' >') ?>
+                            </ul>
+                            <p><?= $this->Paginator->counter() ?></p>
                         </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                                <div class="div-square">
-                                    <a href="blank.html" >
-                                        <i class="fa fa-wechat fa-5x"></i>
-                                        <h4>Campeonatos</h4>
-                                    </a>
-                                </div>                                       
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                            <div class="div-square">
-                                  <a href="blank.html" >
-                                      <i class="fa fa-envelope-o fa-5x"></i>
-                                      <h4>Noticias</h4>
-                                  </a>
-                            </div>
-
-                        </div> 
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                            <div class="div-square">
-                                  <a href="blank.html" >
-                                      <i class="fa fa-envelope-o fa-5x"></i>
-                                      <h4>Mensagens</h4>
-                                  </a>
-                            </div>
-
-                        </div> 
                     </div>
                     
              <!-- /. PAGE INNER  -->

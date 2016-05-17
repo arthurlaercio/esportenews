@@ -19,10 +19,10 @@
             
           </div>
           <div class="form">
-            <h2>Login to your account</h2>
+            <h2>Acesse com sua conta</h2>
             <form>
-              <input type="text" placeholder="Username"/>
-              <input type="password" placeholder="Password"/>
+              <input type="text" placeholder="Usuário"/>
+              <input type="password" placeholder="Senha"/>
               <button>Login</button>
             </form>
           </div>

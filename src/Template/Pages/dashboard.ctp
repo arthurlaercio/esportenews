@@ -89,7 +89,7 @@
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                             <div class="div-square">
                                   <a href="/usuarios/dashboard_usuario" >
-                                      <i class="fa fa-envelope-o fa-5x"></i>
+                                      <i class="fa fa-users fa-5x"></i>
                                       <h4>Usuários</h4>
                                   </a>
                             </div>

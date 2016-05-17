@@ -66,28 +66,6 @@
                     </li>
                     <li >
                         <?php echo $this->Html->link(
-                                'Novo usuário',
-                                ['controller' => 'Usuarios', 'action' => 'add', '_full' => true]
-                            );
-                        ?>
-                    </li>
-                    <li >
-                        <?php echo $this->Html->link(
-                                'Editar usuário',
-                                ['controller' => 'Usuarios', 'action' => 'editar',$usuario->id, '_full' => true]
-                            );
-                        ?>
-                    </li>
-                    <li >
-                        <?php echo $this->Html->link(
-                                'Excluir usuário',
-                                ['controller' => 'Usuarios', 'action' => 'delete',$usuario->id, '_full' => true],
-                                ['confirm' => __('Tem certeza que deseja deletar?', $usuario->id)]
-                            );
-                        ?>
-                    </li>
-                    <li >
-                        <?php echo $this->Html->link(
                                 'Sobre nós',
                                 ['controller' => 'Pages', 'action' => '', '_full' => true]
                             );
