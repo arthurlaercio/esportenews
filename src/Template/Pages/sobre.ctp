@@ -31,12 +31,12 @@
 					<div class="clearfix logo floatleft">
 						<a href=""><h1><span>ESPORTE NEWS</span></h1></a>
 					</div>
-					
+                                            
 				</div>
 								<div class="header_bottom">
 					<nav>
 						<ul id="nav">
-							<li><a href="">Home</a></li>
+							<li><a href="/">Home</a></li>
 							<li id="dropdown"><a href="">Times</a>
 								<ul>
 									<li><a href="">Palmeiras</a></li>

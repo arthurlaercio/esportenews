@@ -88,7 +88,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 				<div class="header_bottom">
 					<nav>
 						<ul id="nav">
-							<li><a href="">Home</a></li>
+							<li><a href="/">Home</a></li>
 							<li id="dropdown"><a href="">Times</a>
 								<ul>
 									<li><a href="">Palmeiras</a></li>
