@@ -32,6 +32,8 @@ arthur.laercio@gmail.com
 
 O SQL está na raiz do projeto.
 
-Para a instalar o projeto, executar os passos acima utilizando o composer, criar um projeto novo e depois pegar as pastas vendor, tmp e log.
+Para a instalar o projeto, executar os passos acima utilizando o composer, criar um projeto novo . Depois somente copiar o repositório e substituir o que for pedido.
 
-Para acessar a home digitar localhost:8765
+Para executar, entrar no cmd ou em algum shell, navegar até o diretório do projeto e digitar o comando "cake\bin server"
+
+Para acessar a home digitar localhost:8765 no navegador
