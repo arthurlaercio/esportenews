@@ -9,12 +9,12 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $titulo
  * @property string $conteudo
- * @property int $tag_time_id
- * @property \App\Model\Entity\TagTime $tag_time
- * @property int $tag_campeonato_id
- * @property \App\Model\Entity\TagCampeonato $tag_campeonato
+ * @property int $time_id
+ * @property \App\Model\Entity\Time $time
+ * @property int $campeonato_id
+ * @property \App\Model\Entity\Campeonato $campeonato
  * @property \Cake\I18n\Time $data_publicacao
- * @property string $imagem
+ * @property string|resource $imagem
  * @property int $ativa
  */
 class Noticia extends Entity

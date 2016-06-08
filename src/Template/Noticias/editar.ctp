@@ -13,10 +13,7 @@
      <!-- GOOGLE FONTS-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
-<body>
-     
-           
-          
+<body>          
     <div id="wrapper">
          <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="adjust-nav">
@@ -34,7 +31,7 @@
                 </div>
               
                 <span class="logout-spn" >
-                  <a href="/usuarios/login" style="color:#fff;">LOGOUT</a>  
+                  <a href="#" style="color:#fff;">LOGOUT</a>  
 
                 </span>
             </div>
@@ -49,7 +46,14 @@
                                 ['controller' => 'Pages', 'action' => 'dashboard', '_full' => true]
                             );
                         ?>
-                    </li>                   
+                    </li>
+                    <li >
+                        <?php echo $this->Html->link(
+                                'Dashboard Noticias',
+                                ['controller' => 'Noticias', 'action' => 'dashboardNoticia', '_full' => true]
+                            );
+                        ?>
+                    </li>
                     <li >
                         <?php echo $this->Html->link(
                                 'HomePage',
@@ -59,8 +63,23 @@
                     </li>
                     <li >
                         <?php echo $this->Html->link(
-                                'Nova notícia',
+                                'Novo Noticia',
                                 ['controller' => 'Noticias', 'action' => 'adicionar', '_full' => true]
+                            );
+                        ?>
+                    </li>
+                    <li >
+                        <?php echo $this->Html->link(
+                                'Editar Noticia',
+                                ['controller' => 'Noticias', 'action' => 'editar',$noticia->id, '_full' => true]
+                            );
+                        ?>
+                    </li>
+                    <li >
+                        <?php echo $this->Html->link(
+                                'Excluir Noticia',
+                                ['controller' => 'Noticias', 'action' => 'delete',$noticia->id, '_full' => true],
+                                ['confirm' => __('Tem certeza que deseja deletar?', $noticia->id)]
                             );
                         ?>
                     </li>
@@ -72,67 +91,44 @@
                         ?>
                     </li>             
                 </ul>
-                            </div>
+            </div>
 
         </nav>
 
-        <div id="page-wrapper" >
+<div id="page-wrapper" >
             <div id="page-inner">
                     <div class="row">
                         <div class="col-lg-12">
-                         <h2>Noticias</h2>   
+                         <h2>Campeonatos</h2>   
                         </div>
                     </div>              
                       <hr />
                     <div class="row">
                         <div class="col-lg-12 ">
                             <div class="alert alert-info">
-                                 <strong>Lista de notícias </strong>
+                                 <strong>Editar campeonato </strong>
                             </div>                       
                         </div>
-                    </div>                
-                    <div class="noticias index large-12 medium-10 columns content">
-                        
-                        <table cellpadding="0" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th><?= $this->Paginator->sort('id') ?></th>
-                                    <th><?= $this->Paginator->sort('titulo') ?></th>
-                                    <th><?= $this->Paginator->sort('time_id') ?></th>
-                                    <th><?= $this->Paginator->sort('campeonato_id') ?></th>
-                                    <th><?= $this->Paginator->sort('data_publicacao') ?></th>
-                                    <th><?= $this->Paginator->sort('ativa') ?></th>
-                                    <th class="actions"><?= __('Ações') ?></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($noticias as $noticia): ?>
-                                <tr>
-                                    <td><?= $this->Number->format($noticia->id) ?></td>
-                                    <td><?= h($noticia->titulo) ?></td>
-                                    <td><?= $noticia->has('time') ? $this->Html->link($noticia->time->id, ['controller' => 'Times', 'action' => 'view', $noticia->time->id]) : '' ?></td>
-                                    <td><?= $noticia->has('campeonato') ? $this->Html->link($noticia->campeonato->id, ['controller' => 'Campeonatos', 'action' => 'visualizar', $noticia->campeonato->id]) : '' ?></td>
-                                    <td><?= h($noticia->data_publicacao) ?></td>
-                                    <td><?= $this->Number->format($noticia->ativa) ?></td>
-                                    <td class="actions">
-                                        <?= $this->Html->link(__('Ver'), ['action' => 'visualizar', $noticia->id]) ?>
-                                        <?= $this->Html->link(__('Editar'), ['action' => 'editar', $noticia->id]) ?>
-                                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $noticia->id], ['confirm' => __('Tem certeza que deseja alterar? # {0}?', $noticia->id)]) ?>
-                                    </td>
-                                </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                        <div class="paginator">
-                            <ul class="pagination">
-                                <?= $this->Paginator->prev('< ' . __('previous')) ?>
-                                <?= $this->Paginator->numbers() ?>
-                                <?= $this->Paginator->next(__('next') . ' >') ?>
-                            </ul>
-                            <p><?= $this->Paginator->counter() ?></p>
+                    </div> 
+                    <div class="row">
+                        <div class="col-lg-12 ">
+                            <div class="noticias form large-9 medium-8 columns content">
+                                <?= $this->Form->create($noticia,['type' => 'file']) ?>
+                                <fieldset>
+                                    <?php
+                                        echo $this->Form->input('titulo');
+                                        echo $this->Form->input('conteudo');
+                                        echo $this->Form->input('time_id', ['options' => $times]);
+                                        echo $this->Form->input('campeonato_id', ['options' => $campeonatos]);
+                                        echo $this->Form->input('imagem',['type' => 'file']);
+                                        echo $this->Form->input('ativa', ['type' => 'checkbox']);                                       
+                                    ?>
+                                </fieldset>
+                                <?= $this->Form->button('Salvar', ['type' => 'submit', 'class' => 'btn btn-success']);?>
+                                <?= $this->Form->end() ?>
+                            </div>
                         </div>
                     </div>
-                    
              <!-- /. PAGE INNER  -->
             </div>
          <!-- /. PAGE WRAPPER  -->
@@ -159,3 +155,5 @@
    
 </body>
 </html>
+
+

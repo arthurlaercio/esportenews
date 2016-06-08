@@ -10,8 +10,8 @@ use Cake\Validation\Validator;
 /**
  * Noticias Model
  *
- * @property \Cake\ORM\Association\BelongsTo $TagTimes
- * @property \Cake\ORM\Association\BelongsTo $TagCampeonatos
+ * @property \Cake\ORM\Association\BelongsTo $Times
+ * @property \Cake\ORM\Association\BelongsTo $Campeonatos
  */
 class NoticiasTable extends Table
 {
@@ -30,12 +30,12 @@ class NoticiasTable extends Table
         $this->displayField('id');
         $this->primaryKey('id');
 
-        $this->belongsTo('TagTimes', [
-            'foreignKey' => 'tag_time_id',
+        $this->belongsTo('Times', [
+            'foreignKey' => 'time_id',
             'joinType' => 'INNER'
         ]);
-        $this->belongsTo('TagCampeonatos', [
-            'foreignKey' => 'tag_campeonato_id',
+        $this->belongsTo('Campeonatos', [
+            'foreignKey' => 'campeonato_id',
             'joinType' => 'INNER'
         ]);
     }
@@ -48,10 +48,10 @@ class NoticiasTable extends Table
      */
     public function validationDefault(Validator $validator)
     {
-        $validator
+        /*$validator
             ->integer('id')
             ->allowEmpty('id', 'create');
-
+*/
         $validator
             ->requirePresence('titulo', 'create')
             ->notEmpty('titulo');
@@ -60,7 +60,7 @@ class NoticiasTable extends Table
             ->requirePresence('conteudo', 'create')
             ->notEmpty('conteudo');
 
-        $validator
+        /*$validator
             ->dateTime('data_publicacao')
             ->requirePresence('data_publicacao', 'create')
             ->notEmpty('data_publicacao');
@@ -73,7 +73,7 @@ class NoticiasTable extends Table
             ->integer('ativa')
             ->requirePresence('ativa', 'create')
             ->notEmpty('ativa');
-
+            */
         return $validator;
     }
 
@@ -86,8 +86,8 @@ class NoticiasTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['tag_time_id'], 'TagTimes'));
-        $rules->add($rules->existsIn(['tag_campeonato_id'], 'TagCampeonatos'));
+        $rules->add($rules->existsIn(['time_id'], 'Times'));
+        $rules->add($rules->existsIn(['campeonato_id'], 'Campeonatos'));
         return $rules;
     }
 }

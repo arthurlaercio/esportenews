@@ -16,10 +16,10 @@ class NoticiasController extends AppController
      *
      * @return \Cake\Network\Response|null
      */
-    public function index()
+    public function dashboardNoticia()
     {
         $this->paginate = [
-            'contain' => ['TagTimes', 'TagCampeonatos']
+            'contain' => ['Times', 'Campeonatos']
         ];
         $noticias = $this->paginate($this->Noticias);
 
@@ -34,10 +34,10 @@ class NoticiasController extends AppController
      * @return \Cake\Network\Response|null
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($id = null)
+    public function visualizar($id = null)
     {
         $noticia = $this->Noticias->get($id, [
-            'contain' => ['TagTimes', 'TagCampeonatos']
+            'contain' => ['Times', 'Campeonatos']
         ]);
 
         $this->set('noticia', $noticia);
@@ -49,21 +49,34 @@ class NoticiasController extends AppController
      *
      * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function adicionar()
     {
         $noticia = $this->Noticias->newEntity();
         if ($this->request->is('post')) {
+            //pr($this->request->data);exit;
             $noticia = $this->Noticias->patchEntity($noticia, $this->request->data);
             if ($this->Noticias->save($noticia)) {
                 $this->Flash->success(__('The noticia has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'dashboardNoticia']);
             } else {
                 $this->Flash->error(__('The noticia could not be saved. Please, try again.'));
             }
         }
-        $tagTimes = $this->Noticias->TagTimes->find('list', ['limit' => 200]);
-        $tagCampeonatos = $this->Noticias->TagCampeonatos->find('list', ['limit' => 200]);
-        $this->set(compact('noticia', 'tagTimes', 'tagCampeonatos'));
+        $campeonatos2 = $this->Noticias->Campeonatos->find()->all();
+        $times2 = $this->Noticias->Times->find()->all();
+        $times =array();
+        $i=0;
+        foreach($times2 as $t){
+            $times[$i][$t['id']] = $t['nome'];
+            $i++;
+        }
+        $i=0;
+        foreach($campeonatos2 as $c){
+            $campeonatos[$i][$c['id']] = $c['nome'];
+            $i++;
+        }
+        //pr($times);exit;
+        $this->set(compact('noticia', 'times', 'campeonatos'));
         $this->set('_serialize', ['noticia']);
     }
 
@@ -74,7 +87,7 @@ class NoticiasController extends AppController
      * @return \Cake\Network\Response|void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function edit($id = null)
+    public function editar($id = null)
     {
         $noticia = $this->Noticias->get($id, [
             'contain' => []
@@ -83,14 +96,14 @@ class NoticiasController extends AppController
             $noticia = $this->Noticias->patchEntity($noticia, $this->request->data);
             if ($this->Noticias->save($noticia)) {
                 $this->Flash->success(__('The noticia has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'dashboardNoticia']);
             } else {
                 $this->Flash->error(__('The noticia could not be saved. Please, try again.'));
             }
         }
-        $tagTimes = $this->Noticias->TagTimes->find('list', ['limit' => 200]);
-        $tagCampeonatos = $this->Noticias->TagCampeonatos->find('list', ['limit' => 200]);
-        $this->set(compact('noticia', 'tagTimes', 'tagCampeonatos'));
+        $times = $this->Noticias->Times->find('list', ['limit' => 200]);
+        $campeonatos = $this->Noticias->Campeonatos->find('list', ['limit' => 200]);
+        $this->set(compact('noticia', 'times', 'campeonatos'));
         $this->set('_serialize', ['noticia']);
     }
 
@@ -110,10 +123,6 @@ class NoticiasController extends AppController
         } else {
             $this->Flash->error(__('The noticia could not be deleted. Please, try again.'));
         }
-        return $this->redirect(['action' => 'index']);
-    }
-    
-    public function dashboardNoticia(){
-        
+        return $this->redirect(['action' => 'dashboardNoticia']);
     }
 }

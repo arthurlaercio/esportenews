@@ -54,17 +54,32 @@ class ParticipantesController extends AppController
         $participante = $this->Participantes->newEntity();
         if ($this->request->is('post')) {
             $participante = $this->Participantes->patchEntity($participante, $this->request->data);
+            //pr($this->request->data);exit;
             if ($this->Participantes->save($participante)) {
                 $this->Flash->success(__('The participante has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Campeonatos','action' => 'dashboardCampeonato']);
             } else {
                 $this->Flash->error(__('The participante could not be saved. Please, try again.'));
             }
         }
-        $campeonatos = $this->Participantes->Campeonatos->find('list', ['limit' => 200]);
-        $times = $this->Participantes->Times->find('list', ['limit' => 200]);
+        //$campeonatos = $this->Participantes->Campeonatos->find('list');
+        $campeonatos2 = $this->Participantes->Campeonatos->find()->all();
+        $times2 = $this->Participantes->Times->find()->all();
+        $times =array();
+        $i=0;
+        foreach($times2 as $t){
+            $times[$i][$t['id']] = $t['nome'];
+            $i++;
+        }
+        $i=0;
+        foreach($campeonatos2 as $c){
+            $campeonatos[$i][$c['id']] = $c['nome'];
+            $i++;
+        }
+        //pr($times);exit;
         $this->set(compact('participante', 'campeonatos', 'times'));
         $this->set('_serialize', ['participante']);
+        //pr($campeonatos);exit;
     }
 
     /**
@@ -83,7 +98,7 @@ class ParticipantesController extends AppController
             $participante = $this->Participantes->patchEntity($participante, $this->request->data);
             if ($this->Participantes->save($participante)) {
                 $this->Flash->success(__('The participante has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Campeonatos','action' => 'dashboardCampeonato']);
             } else {
                 $this->Flash->error(__('The participante could not be saved. Please, try again.'));
             }
@@ -110,6 +125,6 @@ class ParticipantesController extends AppController
         } else {
             $this->Flash->error(__('The participante could not be deleted. Please, try again.'));
         }
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['controller' => 'Campeonatos','action' => 'dashboardCampeonato']);
     }
 }

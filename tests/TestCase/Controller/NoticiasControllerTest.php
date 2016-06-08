@@ -17,8 +17,10 @@ class NoticiasControllerTest extends IntegrationTestCase
      */
     public $fixtures = [
         'app.noticias',
-        'app.tag_times',
-        'app.tag_campeonatos'
+        'app.times',
+        'app.participantes',
+        'app.campeonatos',
+        'app.tags'
     ];
 
     /**

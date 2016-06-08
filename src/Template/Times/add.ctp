@@ -102,7 +102,7 @@
                                         echo $this->Form->input('titulo');
                                         echo $this->Form->input('descricao');
                                         echo $this->Form->input('nome_estadio');
-                                        echo $this->Form->input('imagem');                                       
+                                        echo $this->Form->input('imagem', array('type' => 'file'));
                                     ?>
                                 <?= $this->Form->button('Salvar', ['type' => 'submit', 'class' => 'btn btn-success']);?>
                                 <?= $this->Form->end() ?>

@@ -59,6 +59,13 @@
                     </li>
                     <li >
                         <?php echo $this->Html->link(
+                                'Novo Campeonato',
+                                ['controller' => 'Campeonatos', 'action' => 'adicionar', '_full' => true]
+                            );
+                        ?>
+                    </li>
+                    <li >
+                        <?php echo $this->Html->link(
                                 'Sobre nós',
                                 ['controller' => 'Pages', 'action' => '', '_full' => true]
                             );
@@ -73,64 +80,56 @@
             <div id="page-inner">
                     <div class="row">
                         <div class="col-lg-12">
-                         <h2>ADMIN DASHBOARD</h2>   
+                         <h2>Campeonatos</h2>   
                         </div>
                     </div>              
                       <hr />
                     <div class="row">
                         <div class="col-lg-12 ">
                             <div class="alert alert-info">
-                                 <strong>Bem vindo ! </strong>
+                                 <strong>Lista de campeonatos </strong>
                             </div>                       
                         </div>
                     </div>                
-                    <div class="row text-center pad-top">
-
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                            <div class="div-square">
-                                  <a href="blank.html" >
-                                      <i class="fa fa-envelope-o fa-5x"></i>
-                                      <h4>Usuários</h4>
-                                  </a>
-                            </div>
-
-                        </div>                  
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                            <div class="div-square">
-                                  <a href="blank.html" >
-                                      <i class="fa fa-users fa-5x"></i>
-                                      <h4>Times</h4>
-                                  </a>
-                            </div>
-
+                    <div class="campeonatos index large-12 medium-10 columns content">
+                        <table cellpadding="0" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th><?= $this->Paginator->sort('id') ?></th>
+                                    <th><?= $this->Paginator->sort('nome') ?></th>
+                                    <th><?= $this->Paginator->sort('tipo') ?></th>
+                                    <th><?= $this->Paginator->sort('descricao') ?></th>                                   
+                                    <th><?= $this->Paginator->sort('imagem') ?></th>
+                                    <th class="actions"><?= __('Ações') ?></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($campeonatos as $campeonato): ?>
+                                <tr>
+                                    <td><?= $this->Number->format($campeonato->id) ?></td>
+                                    <td><?= h($campeonato->nome) ?></td>
+                                    <td><?= h($campeonato->tipo) ?></td>
+                                    <td><?= h($campeonato->descricao) ?></td>                                 
+                                    <td><?= h($campeonato->imagem) ?></td>
+                                    <td class="actions">
+                                        <?= $this->Html->link(__('Ver'), ['action' => 'visualizar', $campeonato->id]) ?>
+                                        <?= $this->Html->link(__('Editar'), ['action' => 'editar', $campeonato->id]) ?>
+                                        <?= $this->Form->postLink(__('Deletar'), ['action' => 'delete', $campeonato->id], ['confirm' => __('Are you sure you want to delete # {0}?', $campeonato->id)]) ?>
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                        <div class="paginator">
+                            <ul class="pagination">
+                                <?= $this->Paginator->prev('< ' . __('previous')) ?>
+                                <?= $this->Paginator->numbers() ?>
+                                <?= $this->Paginator->next(__('next') . ' >') ?>
+                            </ul>
+                            <p><?= $this->Paginator->counter() ?></p>
                         </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                                <div class="div-square">
-                                    <a href="blank.html" >
-                                        <i class="fa fa-wechat fa-5x"></i>
-                                        <h4>Campeonatos</h4>
-                                    </a>
-                                </div>                                       
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                            <div class="div-square">
-                                  <a href="blank.html" >
-                                      <i class="fa fa-envelope-o fa-5x"></i>
-                                      <h4>Noticias</h4>
-                                  </a>
-                            </div>
-
-                        </div> 
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                            <div class="div-square">
-                                  <a href="blank.html" >
-                                      <i class="fa fa-envelope-o fa-5x"></i>
-                                      <h4>Mensagens</h4>
-                                  </a>
-                            </div>
-
-                        </div> 
                     </div>
+
                     
              <!-- /. PAGE INNER  -->
             </div>

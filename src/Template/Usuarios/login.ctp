@@ -20,9 +20,9 @@
           </div>
           <div class="form">
             <h2>Acesse com sua conta</h2>
-            <form>
-              <input type="text" placeholder="Usuário"/>
-              <input type="password" placeholder="Senha"/>
+            <form method="post">
+              <input type="text" name="user" placeholder="Usuario"/>
+              <input type="password" name="senha" placeholder="Senha"/>
               <button>Login</button>
             </form>
           </div>

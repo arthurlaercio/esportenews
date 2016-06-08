@@ -36,7 +36,20 @@ class UsuariosController extends AppController
     }
     
     public function login(){
-        
+           
+            if(!empty($this->request->data)){
+                $usuario = $this->request->data['user'];
+                $senha = $this->request->data['senha'];
+                $user = $this->Usuarios->find()->all();
+                foreach ($user as $u){
+                    if($u['username'] == $usuario && $u['senha'] == $senha){
+                        $this->Flash->success(__('Usuário autenticado com sucesso.'));
+                        return $this->redirect(['action' => 'dashboardUsuario']);
+                    }
+                }
+                $this->Flash->error(__('Falha na autenticação, tente novamente!'));
+                return $this->redirect(['action' => 'login']);
+            }
     }
     
     public function dashboardUsuario(){
