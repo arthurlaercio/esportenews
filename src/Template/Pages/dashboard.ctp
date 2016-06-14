@@ -121,7 +121,7 @@
                             </div>
 
                         </div> 
-                      <!--  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                             <div class="div-square">
                                   <a href="/mensagens/dashboard_mensagem" >
                                       <i class="fa fa-envelope-o fa-5x"></i>
@@ -129,7 +129,7 @@
                                   </a>
                             </div>
 
-                        </div> -->
+                        </div> 
                     </div>
                     
              <!-- /. PAGE INNER  -->

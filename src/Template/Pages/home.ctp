@@ -81,28 +81,10 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 				<div class="header_bottom">
 					<nav>
 						<ul id="nav">
-							<li><a href="/">Home</a></li>
-							<li id="dropdown"><a href="">Times</a>
-								<ul>
-									<li><a href="">Palmeiras</a></li>
-									<li><a href="">Corinthians</a></li>
-									<li><a href="">São Paulo</a></li>
-                                                                        <li><a href="">Santos</a></li>
-									<li><a href="">Flamengo</a></li>
-									<li><a href="">Vasco</a></li>
-								</ul>
-							</li>
-							<li id="dropdown"><a href="">Campeonato</a>
-								<ul>
-									<li><a href="">Paulistão</a></li>
-									<li><a href="">Carioca</a></li>
-									<li><a href="">Brasileirão</a></li>
-								</ul>
-							</li>
-							<li><a href="">Vôlei</a></li>
-							<li><a href="">Outros esportes</a></li>
+							<li><a href="/noticias/home">Home</a></li>
+							<li><a href="/times/home">Times</a></li>
 							<li><a href="/pages/sobre">Sobre nós</a></li>
-							<li><a href="">Contate-nos</a></li>
+							<li><a href="/mensagens/add">Contate-nos</a></li>
 						</ul>
 					</nav>
 				</div>

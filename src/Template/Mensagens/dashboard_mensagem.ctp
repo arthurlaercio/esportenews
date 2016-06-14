@@ -34,7 +34,7 @@
                 </div>
               
                 <span class="logout-spn" >
-                  <a href="#" style="color:#fff;">LOGOUT</a>  
+                  <a href="/usuarios/login" style="color:#fff;">LOGOUT</a>  
 
                 </span>
             </div>
@@ -53,10 +53,11 @@
                     <li >
                         <?php echo $this->Html->link(
                                 'HomePage',
-                                ['controller' => 'Pages', 'action' => 'home', '_full' => true]
+                                ['controller' => 'Noticias', 'action' => 'home', '_full' => true]
                             );
                         ?>
                     </li>
+                   
                     <li >
                         <?php echo $this->Html->link(
                                 'Sobre nós',
@@ -73,69 +74,60 @@
             <div id="page-inner">
                     <div class="row">
                         <div class="col-lg-12">
-                         <h2>ADMIN DASHBOARD</h2>   
+                         <h2>Mensagens</h2>   
                         </div>
                     </div>              
                       <hr />
                     <div class="row">
                         <div class="col-lg-12 ">
                             <div class="alert alert-info">
-                                 <strong>Bem vindo ! </strong>
+                                 <strong>Lista de notícias </strong>
                             </div>                       
                         </div>
                     </div>                
-                    <div class="row text-center pad-top">
-
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                            <div class="div-square">
-                                  <a href="blank.html" >
-                                      <i class="fa fa-envelope-o fa-5x"></i>
-                                      <h4>Usuários</h4>
-                                  </a>
-                            </div>
-
-                        </div>                  
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                            <div class="div-square">
-                                  <a href="blank.html" >
-                                      <i class="fa fa-users fa-5x"></i>
-                                      <h4>Times</h4>
-                                  </a>
-                            </div>
-
+                    <div class="mensagens index large-12 medium-10 columns content">
+                        
+                        <table cellpadding="0" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th><?= $this->Paginator->sort('id') ?></th>
+                                    <th><?= $this->Paginator->sort('nome') ?></th>
+                                    <th><?= $this->Paginator->sort('descricao') ?></th>
+                                    <th><?= $this->Paginator->sort('email') ?></th>
+                                    <th class="actions"><?= __('Actions') ?></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($mensagens as $mensagen): ?>
+                                <tr>
+                                    <td><?= $this->Number->format($mensagen->id) ?></td>
+                                    <td><?= h($mensagen->nome) ?></td>
+                                    <td><?= h($mensagen->descricao) ?></td>
+                                    <td><?= h($mensagen->email) ?></td>
+                                    <td class="actions">
+                                        <?= $this->Html->link(__('Ver'), ['action' => 'view', $mensagen->id]) ?>
+                                        <?php //$this->Html->link(__('Editar'), ['action' => 'edit', $mensagen->id]) ?>
+                                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $mensagen->id], ['confirm' => __('Tem certeza que deseja deletar?', $mensagen->id)]) ?>
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                        <div class="paginator">
+                            <ul class="pagination">
+                                <?= $this->Paginator->prev('< ' . __('previous')) ?>
+                                <?= $this->Paginator->numbers() ?>
+                                <?= $this->Paginator->next(__('next') . ' >') ?>
+                            </ul>
+                            <p><?= $this->Paginator->counter() ?></p>
                         </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                                <div class="div-square">
-                                    <a href="blank.html" >
-                                        <i class="fa fa-wechat fa-5x"></i>
-                                        <h4>Campeonatos</h4>
-                                    </a>
-                                </div>                                       
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                            <div class="div-square">
-                                  <a href="blank.html" >
-                                      <i class="fa fa-envelope-o fa-5x"></i>
-                                      <h4>Noticias</h4>
-                                  </a>
-                            </div>
-
-                        </div> 
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                            <div class="div-square">
-                                  <a href="blank.html" >
-                                      <i class="fa fa-envelope-o fa-5x"></i>
-                                      <h4>Mensagens</h4>
-                                  </a>
-                            </div>
-
-                        </div> 
                     </div>
                     
              <!-- /. PAGE INNER  -->
             </div>
          <!-- /. PAGE WRAPPER  -->
         </div>
+    </div>
     <div class="footer">
             <div class="row">
                 <div class="col-lg-12" >

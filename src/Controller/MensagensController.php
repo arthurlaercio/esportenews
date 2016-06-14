@@ -53,7 +53,7 @@ class MensagensController extends AppController
             $mensagen = $this->Mensagens->patchEntity($mensagen, $this->request->data);
             if ($this->Mensagens->save($mensagen)) {
                 $this->Flash->success(__('The mensagen has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller'=>'Noticias','action' => 'home']);
             } else {
                 $this->Flash->error(__('The mensagen could not be saved. Please, try again.'));
             }
@@ -78,7 +78,7 @@ class MensagensController extends AppController
             $mensagen = $this->Mensagens->patchEntity($mensagen, $this->request->data);
             if ($this->Mensagens->save($mensagen)) {
                 $this->Flash->success(__('The mensagen has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'dashboardMensagem']);
             } else {
                 $this->Flash->error(__('The mensagen could not be saved. Please, try again.'));
             }
@@ -103,10 +103,13 @@ class MensagensController extends AppController
         } else {
             $this->Flash->error(__('The mensagen could not be deleted. Please, try again.'));
         }
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['action' => 'dashboardMensagem']);
     }
     
     public function dashboardMensagem(){
-        
+        $mensagens = $this->paginate($this->Mensagens);
+
+        $this->set(compact('mensagens'));
+        $this->set('_serialize', ['mensagens']);
     }
 }
