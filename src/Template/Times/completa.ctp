@@ -82,25 +82,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 					<nav>
 						<ul id="nav">
 							<li><a href="/">Home</a></li>
-							<li id="dropdown"><a href="">Times</a>
-								<ul>
-									<li><a href="">Palmeiras</a></li>
-									<li><a href="">Corinthians</a></li>
-									<li><a href="">São Paulo</a></li>
-                                                                        <li><a href="">Santos</a></li>
-									<li><a href="">Flamengo</a></li>
-									<li><a href="">Vasco</a></li>
-								</ul>
-							</li>
-							<li id="dropdown"><a href="">Campeonato</a>
-								<ul>
-									<li><a href="">Paulistão</a></li>
-									<li><a href="">Carioca</a></li>
-									<li><a href="">Brasileirão</a></li>
-								</ul>
-							</li>
-							<li><a href="">Vôlei</a></li>
-							<li><a href="">Outros esportes</a></li>
+							<li><a href="/times/home">Times</a></li>
 							<li><a href="/pages/sobre">Sobre nós</a></li>
 							<li><a href="">Contate-nos</a></li>
 						</ul>
@@ -123,66 +105,39 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                                           <li data-target="#myCarousel" data-slide-to="3"></li>
                                         </ol>
 
-                                        <!-- Wrapper for slides -->
-                                        <!--<div class="carousel-inner" role="listbox">
-                                          <div class="item active">
-                                              <img src="img/slides/at.jpg" alt="Chania" width="460" height="345">
-                                          </div>
-
-                                          <div class="item">
-                                            <img src="img/slides/download.jpg" alt="Chania" width="460" height="345">
-                                          </div>
-
-                                          <div class="item">
-                                            <img src="img/slides/vasco.jpg" alt="Flower" width="460" height="345">
-                                          </div>
-
-                                          <div class="item">
-                                            <img src="img/home-copy.jpg" alt="Flower" width="460" height="345">
-                                            <label>Jogador se machuca em treino </label>
-                                          </div>
-                                        </div>
-                                        -->
-                                        <!-- Left and right controls -->
-                                        <!--<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                                          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                          <span class="sr-only">Previous</span>
-                                        </a>
-                                        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                                          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                          <span class="sr-only">Next</span>
-                                        </a>
-                                      </div>-->
+                                        
 					
 					<div class="clearfix content">
 						<!--<div class="content_title"><h3>Notícias</h3></div>-->
-						<?php foreach($noticias as $noticia){ ?>
+						
                                                 
 						<div class="clearfix single_content">
 							<div class="clearfix post_date floatleft">
-								<h3><?= $noticia['data_publicacao']; ?></h3>
+								<h3>Id: <?= $time['id']; ?></h3>
 							</div>
 							<div class="clearfix post_detail">
-                                                            <h2><a href="/noticias/visualizar/"<?= $noticia['id']?> > <?= $noticia['titulo']?> </a></h2>
+                                                            <h2>Nome: <?= $time['nome']?></h2>
 								<div class="clearfix post_excerpt">
-                                                                    <p><?= $noticia['conteudo']?></p>
+                                                                    <p>Estado: <?= $time['estado']?></p>
                                                                 </div>
+                                                                <div class="clearfix post_excerpt">
+                                                                    <p>País: <?= $time['pais']?></p>
+                                                                </div>
+                                                                <div class="clearfix post_excerpt">
+                                                                    <p>Títulos: <?= $time['titulo']?></p>
+                                                                </div>
+                                                                <div class="clearfix post_excerpt">
+                                                                    <p>Descrição: <?= $time['descricao']?></p>
+                                                                </div>
+                                                                <div class="clearfix post_excerpt">
+                                                                    <p>Nome do estádio: <?= $time['nome_estadio']?></p>
+                                                                </div>
+                                                               
 							</div>
 						</div>					
 					</div>
-                                                <?php } ?>
-					<div class="pagination">
-						<nav>
-							<ul>
-								<li><a href=""> << </a></li>
-								<li><a href="">1</a></li>
-								<li><a href="">2</a></li>
-								<li><a href="">3</a></li>
-								<li><a href="">4</a></li>
-								<li><a href=""> >> </a></li>
-							</ul>
-						</nav>
-					</div>
+                                                
+					
 				</div>
 				<div class="clearfix sidebar_container floatright">
 			

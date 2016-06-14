@@ -82,25 +82,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 					<nav>
 						<ul id="nav">
 							<li><a href="/">Home</a></li>
-							<li id="dropdown"><a href="">Times</a>
-								<ul>
-									<li><a href="">Palmeiras</a></li>
-									<li><a href="">Corinthians</a></li>
-									<li><a href="">São Paulo</a></li>
-                                                                        <li><a href="">Santos</a></li>
-									<li><a href="">Flamengo</a></li>
-									<li><a href="">Vasco</a></li>
-								</ul>
-							</li>
-							<li id="dropdown"><a href="">Campeonato</a>
-								<ul>
-									<li><a href="">Paulistão</a></li>
-									<li><a href="">Carioca</a></li>
-									<li><a href="">Brasileirão</a></li>
-								</ul>
-							</li>
-							<li><a href="">Vôlei</a></li>
-							<li><a href="">Outros esportes</a></li>
+							<li><a href="/times/home">Times</a></li>
 							<li><a href="/pages/sobre">Sobre nós</a></li>
 							<li><a href="">Contate-nos</a></li>
 						</ul>
@@ -163,7 +145,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 								<h3><?= $noticia['data_publicacao']; ?></h3>
 							</div>
 							<div class="clearfix post_detail">
-                                                            <h2><a href="/noticias/visualizar/"<?= $noticia['id']?> > <?= $noticia['titulo']?> </a></h2>
+                                                            <h2><a href="/noticias/completa/<?= $noticia['id']?>" > <?= $noticia['titulo']?> </a></h2>
 								<div class="clearfix post_excerpt">
                                                                     <p><?= $noticia['conteudo']?></p>
                                                                 </div>
@@ -171,18 +153,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 						</div>					
 					</div>
                                                 <?php } ?>
-					<div class="pagination">
-						<nav>
-							<ul>
-								<li><a href=""> << </a></li>
-								<li><a href="">1</a></li>
-								<li><a href="">2</a></li>
-								<li><a href="">3</a></li>
-								<li><a href="">4</a></li>
-								<li><a href=""> >> </a></li>
-							</ul>
-						</nav>
-					</div>
+					
 				</div>
 				<div class="clearfix sidebar_container floatright">
 			

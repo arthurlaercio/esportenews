@@ -125,4 +125,23 @@ class NoticiasController extends AppController
         }
         return $this->redirect(['action' => 'dashboardNoticia']);
     }
+    
+    public function home(){
+        $this->Noticias->paginate = [
+            'contain' => ['Times', 'Campeonatos']
+        ];
+        $noticias = $this->paginate($this->Noticias);
+        //pr($noticias);exit;
+        $this->set(compact('noticias'));
+        $this->set('_serialize', ['noticias']);
+    }
+    
+    public function completa($id = null){
+        $noticia = $this->Noticias->get($id, [
+            'contain' => ['Times', 'Campeonatos']
+        ]);
+
+        $this->set('noticia', $noticia);
+        $this->set('_serialize', ['noticia']);
+    }
 }

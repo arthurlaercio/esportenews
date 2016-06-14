@@ -75,4 +75,20 @@ class TimesController extends AppController
         $this->set(compact('times'));
         $this->set('_serialize', ['times']);
     }
+    
+    public function home($id = null){
+        $times = $this->paginate($this->Times);
+
+        $this->set(compact('times'));
+        $this->set('_serialize', ['times']);
+    }
+    
+    public function completa($id = null){
+        $time = $this->Times->get($id, [
+            'contain' => ['Participantes', 'Tags']
+        ]);
+
+        $this->set('time', $time);
+        $this->set('_serialize', ['time']);
+    }
 }

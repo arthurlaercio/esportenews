@@ -64,7 +64,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     
   </head>
   <body>
-	<?php //pr($noticias);exit;?>
+	
 		<section id="header_area">
 			<div class="wrapper header">
 				<div class="clearfix header_top">
@@ -156,7 +156,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 					
 					<div class="clearfix content">
 						<!--<div class="content_title"><h3>Notícias</h3></div>-->
-						<?php foreach($noticias as $noticia){ ?>
+						<?php foreach($noticias as $noticia){ pr($this->data);exit;?>
                                                 
 						<div class="clearfix single_content">
 							<div class="clearfix post_date floatleft">

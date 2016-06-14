@@ -82,25 +82,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 					<nav>
 						<ul id="nav">
 							<li><a href="/">Home</a></li>
-							<li id="dropdown"><a href="">Times</a>
-								<ul>
-									<li><a href="">Palmeiras</a></li>
-									<li><a href="">Corinthians</a></li>
-									<li><a href="">São Paulo</a></li>
-                                                                        <li><a href="">Santos</a></li>
-									<li><a href="">Flamengo</a></li>
-									<li><a href="">Vasco</a></li>
-								</ul>
-							</li>
-							<li id="dropdown"><a href="">Campeonato</a>
-								<ul>
-									<li><a href="">Paulistão</a></li>
-									<li><a href="">Carioca</a></li>
-									<li><a href="">Brasileirão</a></li>
-								</ul>
-							</li>
-							<li><a href="">Vôlei</a></li>
-							<li><a href="">Outros esportes</a></li>
+							<li><a href="/times/home">Times</a></li>
 							<li><a href="/pages/sobre">Sobre nós</a></li>
 							<li><a href="">Contate-nos</a></li>
 						</ul>
@@ -122,50 +104,19 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                                           <li data-target="#myCarousel" data-slide-to="2"></li>
                                           <li data-target="#myCarousel" data-slide-to="3"></li>
                                         </ol>
-
-                                        <!-- Wrapper for slides -->
-                                        <!--<div class="carousel-inner" role="listbox">
-                                          <div class="item active">
-                                              <img src="img/slides/at.jpg" alt="Chania" width="460" height="345">
-                                          </div>
-
-                                          <div class="item">
-                                            <img src="img/slides/download.jpg" alt="Chania" width="460" height="345">
-                                          </div>
-
-                                          <div class="item">
-                                            <img src="img/slides/vasco.jpg" alt="Flower" width="460" height="345">
-                                          </div>
-
-                                          <div class="item">
-                                            <img src="img/home-copy.jpg" alt="Flower" width="460" height="345">
-                                            <label>Jogador se machuca em treino </label>
-                                          </div>
-                                        </div>
-                                        -->
-                                        <!-- Left and right controls -->
-                                        <!--<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                                          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                          <span class="sr-only">Previous</span>
-                                        </a>
-                                        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                                          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                          <span class="sr-only">Next</span>
-                                        </a>
-                                      </div>-->
 					
 					<div class="clearfix content">
 						<!--<div class="content_title"><h3>Notícias</h3></div>-->
-						<?php foreach($noticias as $noticia){ ?>
+						<?php foreach($times as $time){ ?>
                                                 
 						<div class="clearfix single_content">
 							<div class="clearfix post_date floatleft">
-								<h3><?= $noticia['data_publicacao']; ?></h3>
+								<h5><?= $time['id']; ?></h5>
 							</div>
 							<div class="clearfix post_detail">
-                                                            <h2><a href="/noticias/visualizar/"<?= $noticia['id']?> > <?= $noticia['titulo']?> </a></h2>
+                                                            <h2><a href="/times/completa/<?= $time['id']?>" > <?= $time['nome']?> </a></h2>
 								<div class="clearfix post_excerpt">
-                                                                    <p><?= $noticia['conteudo']?></p>
+                                                                    <p><?= $time['descricao']?></p>
                                                                 </div>
 							</div>
 						</div>					

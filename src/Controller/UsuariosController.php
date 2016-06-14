@@ -44,7 +44,7 @@ class UsuariosController extends AppController
                 foreach ($user as $u){
                     if($u['username'] == $usuario && $u['senha'] == $senha){
                         $this->Flash->success(__('Usuário autenticado com sucesso.'));
-                        return $this->redirect(['action' => 'dashboardUsuario']);
+                        return $this->redirect(['controller' => 'Pages','action' => 'dashboard']);
                     }
                 }
                 $this->Flash->error(__('Falha na autenticação, tente novamente!'));

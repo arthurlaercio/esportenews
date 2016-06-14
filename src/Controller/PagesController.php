@@ -61,6 +61,15 @@ class PagesController extends AppController
             }
             throw new NotFoundException();
         }
+        $this->loadModel('Noticias');
+        
+        $this->Noticias->paginate = [
+            'contain' => ['Times', 'Campeonatos']
+        ];       
+        $noticias = $this->paginate($this->Noticias);
+        //pr($noticias);exit;
+        $this->set(compact('noticias'));
+        $this->set('_serialize', ['noticias']);
     }
     
     public function dashboard(){
@@ -69,6 +78,17 @@ class PagesController extends AppController
     
     public function sobre(){
         
+    }
+    
+    public function home(){
+        $this->loadModel('Noticias');
+        $this->Noticias->paginate = [
+            'contain' => ['Times', 'Campeonatos']
+        ];
+        $noticias = $this->paginate($this->Noticias);
+        //pr($noticias);exit;
+        $this->set(compact('noticias'));
+        $this->set('_serialize', ['noticias']);
     }
 
 }

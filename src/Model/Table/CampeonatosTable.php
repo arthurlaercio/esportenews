@@ -62,10 +62,10 @@ class CampeonatosTable extends Table
             ->requirePresence('descricao', 'create')
             ->notEmpty('descricao');
 
-        $validator
+       /* $validator
             ->requirePresence('imagem', 'create')
             ->notEmpty('imagem');
-
+            */
         return $validator;
     }
 }
