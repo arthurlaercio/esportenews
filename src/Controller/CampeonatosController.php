@@ -94,4 +94,19 @@ class CampeonatosController extends AppController
         $this->set(compact('campeonatos'));
         $this->set('_serialize', ['campeonatos']);
     }
+    
+    public function home(){
+        $campeonatos = $this->paginate($this->Campeonatos);
+        $this->set(compact('campeonatos'));
+        $this->set('_serialize', ['campeonatos']);
+    }
+    
+    public function completa($id = null){
+        $campeonato = $this->Campeonatos->get($id, [
+            'contain' => ['Participantes', 'Tags']
+        ]);
+        //pr($campeonato);exit;
+        $this->set('campeonato', $campeonato);
+        $this->set('_serialize', ['campeonato']);
+    }
 }

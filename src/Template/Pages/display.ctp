@@ -83,6 +83,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 						<ul id="nav">
 							<li><a href="/noticias/home">Home</a></li>
 							<li><a href="/times/home">Times</a></li>
+                                                        <li><a href="/campeonatos/home">Campeonatos</a></li>
 							<li><a href="/pages/sobre">Sobre nós</a></li>
 							<li><a href="/mensagens/add">Contate-nos</a></li>
 						</ul>

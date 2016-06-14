@@ -96,44 +96,23 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 			<div class="clearfix wrapper main_content_area">
 			
 				<div class="clearfix main_content floatleft">
-				
-					<div id="myCarousel" class="carousel slide" data-ride="carousel">
-                                        <!-- Indicators -->
-                                        <ol class="carousel-indicators">
-                                          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                          <li data-target="#myCarousel" data-slide-to="1"></li>
-                                          <li data-target="#myCarousel" data-slide-to="2"></li>
-                                          <li data-target="#myCarousel" data-slide-to="3"></li>
-                                        </ol>
-
-                                        
-					
+		
 					<div class="clearfix content">
 						<!--<div class="content_title"><h3>Notícias</h3></div>-->
 						
                                                 
 						<div class="clearfix single_content">
 							<div class="clearfix post_date floatleft">
-								<h3>Id: <?= $time['id']; ?></h3>
+								<h3>Id: <?= $campeonato['id']; ?></h3>
 							</div>
 							<div class="clearfix post_detail">
-                                                            <h2>Nome: <?= $time['nome']?></h2>
+                                                            <h2>Nome: <?= $campeonato['nome']?></h2>
 								<div class="clearfix post_excerpt">
-                                                                    <p>Estado: <?= $time['estado']?></p>
+                                                                    <p>Descrição: <?= $campeonato['descricao']?></p>
                                                                 </div>
                                                                 <div class="clearfix post_excerpt">
-                                                                    <p>País: <?= $time['pais']?></p>
-                                                                </div>
-                                                                <div class="clearfix post_excerpt">
-                                                                    <p>Títulos: <?= $time['titulo']?></p>
-                                                                </div>
-                                                                <div class="clearfix post_excerpt">
-                                                                    <p>Descrição: <?= $time['descricao']?></p>
-                                                                </div>
-                                                                <div class="clearfix post_excerpt">
-                                                                    <p>Nome do estádio: <?= $time['nome_estadio']?></p>
-                                                                </div>
-                                                               
+                                                                    <p>Tipo: <?= $campeonato['tipo']?></p>
+                                                                </div>                                                                                                                         
 							</div>
 						</div>					
 					</div>

@@ -97,48 +97,35 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 			
 				<div class="clearfix main_content floatleft">
 				
-					<div id="myCarousel" class="carousel slide" data-ride="carousel">
-                                        <!-- Indicators -->
-                                        <ol class="carousel-indicators">
-                                          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                          <li data-target="#myCarousel" data-slide-to="1"></li>
-                                          <li data-target="#myCarousel" data-slide-to="2"></li>
-                                          <li data-target="#myCarousel" data-slide-to="3"></li>
-                                        </ol>
-
-                                        
-					
 					<div class="clearfix content">
 						<!--<div class="content_title"><h3>Notícias</h3></div>-->
-						
+						<?php foreach($campeonatos as $campeonato){ ?>
                                                 
 						<div class="clearfix single_content">
 							<div class="clearfix post_date floatleft">
-								<h3>Id: <?= $time['id']; ?></h3>
+								<h5><?= $campeonato['id']; ?></h5>
 							</div>
 							<div class="clearfix post_detail">
-                                                            <h2>Nome: <?= $time['nome']?></h2>
+                                                            <h2><a href="/campeonatos/completa/<?= $campeonato['id']?>" > <?= $campeonato['nome']?> </a></h2>
 								<div class="clearfix post_excerpt">
-                                                                    <p>Estado: <?= $time['estado']?></p>
+                                                                    <p><?= $campeonato['descricao']?></p>
                                                                 </div>
-                                                                <div class="clearfix post_excerpt">
-                                                                    <p>País: <?= $time['pais']?></p>
-                                                                </div>
-                                                                <div class="clearfix post_excerpt">
-                                                                    <p>Títulos: <?= $time['titulo']?></p>
-                                                                </div>
-                                                                <div class="clearfix post_excerpt">
-                                                                    <p>Descrição: <?= $time['descricao']?></p>
-                                                                </div>
-                                                                <div class="clearfix post_excerpt">
-                                                                    <p>Nome do estádio: <?= $time['nome_estadio']?></p>
-                                                                </div>
-                                                               
 							</div>
 						</div>					
 					</div>
-                                                
-					
+                                                <?php } ?>
+					<div class="pagination">
+						<nav>
+							<ul>
+								<li><a href=""> << </a></li>
+								<li><a href="">1</a></li>
+								<li><a href="">2</a></li>
+								<li><a href="">3</a></li>
+								<li><a href="">4</a></li>
+								<li><a href=""> >> </a></li>
+							</ul>
+						</nav>
+					</div>
 				</div>
 				<div class="clearfix sidebar_container floatright">
 			
