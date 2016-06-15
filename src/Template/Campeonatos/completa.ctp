@@ -114,7 +114,41 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                                                                     <p>Tipo: <?= $campeonato['tipo']?></p>
                                                                 </div>                                                                                                                         
 							</div>
-						</div>					
+						</div>		
+                                                <div class="clearfix single_content"></br></br>
+                                                    <div class="campeonatos index large-12 medium-10 columns content">
+                                                        Tabela do campeonato
+                                                        </br></br>
+                                                        <table cellpadding="0" cellspacing="0" border="2">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Classificação</th>
+                                                                    <th>Nome</th>
+                                                                    <th>Pontos</th>
+                                                                    <th>Vitórias</th>
+                                                                    <th>Empates</th>
+                                                                    <th>Derrotas</th>
+                                                                    <th>Saldo</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php $i=1;?>
+                                                                <?php foreach ($tabela as $table){ ?>
+                                                                <tr>
+                                                                    <td><?= $i ?></td>
+                                                                    <td><?= h($table['nome']) ?></td>
+                                                                    <td><?= h(($table['vitorias']*3)+$table['empate']) ?></td>
+                                                                    <td><?= h($table['vitorias']) ?></td>
+                                                                    <td><?= h($table['empate']) ?></td>                                 
+                                                                    <td><?= h($table['derrotas']) ?></td>
+                                                                    <td><?= h($table['saldo']) ?></td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                            <?php $i++; } ?>
+                                                        </table>
+                                                    </div>
+                                                </div>
 					</div>
                                                 
 					

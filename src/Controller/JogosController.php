@@ -18,12 +18,32 @@ class JogosController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['TimeCasas', 'TimeForas']
-        ];
         $jogos = $this->paginate($this->Jogos);
-
-        $this->set(compact('jogos'));
+        $this->loadModel('Times');
+        $this->loadModel('Campeonatos');
+        $campeonatos2 = $this->Campeonatos->find()->all();
+        $times2 = $this->Times->find()->all();
+        $times =array();
+     
+       
+        foreach ($jogos as $jogo){
+            foreach($times2 as $t){
+                if($jogo['casa'] == $t['id']){
+                    $jogo['casa'] = $t['nome'];
+                }
+                if($jogo['fora'] == $t['id']){
+                    $jogo['fora'] = $t['nome'];
+                }         
+            }
+            foreach($campeonatos2 as $c){
+                if($jogo['rodada'] == $c['id']){
+                    $jogo['rodada'] = $c['nome'];
+                }
+           
+        }
+        }
+        //pr($jogos);exit;
+        $this->set(compact('jogos','times','campeonatos'));
         $this->set('_serialize', ['jogos']);
     }
 
@@ -37,7 +57,7 @@ class JogosController extends AppController
     public function view($id = null)
     {
         $jogo = $this->Jogos->get($id, [
-            'contain' => ['TimeCasas', 'TimeForas']
+            'contain' => []
         ]);
 
         $this->set('jogo', $jogo);
@@ -51,19 +71,34 @@ class JogosController extends AppController
      */
     public function add()
     {
+        
         $jogo = $this->Jogos->newEntity();
         if ($this->request->is('post')) {
             $jogo = $this->Jogos->patchEntity($jogo, $this->request->data);
             if ($this->Jogos->save($jogo)) {
                 $this->Flash->success(__('The jogo has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller'=> 'Campeonatos','action' => 'dashboardCampeonato']);
             } else {
                 $this->Flash->error(__('The jogo could not be saved. Please, try again.'));
             }
         }
-        $timeCasas = $this->Jogos->TimeCasas->find('list', ['limit' => 200]);
-        $timeForas = $this->Jogos->TimeForas->find('list', ['limit' => 200]);
-        $this->set(compact('jogo', 'timeCasas', 'timeForas'));
+        $this->loadModel('Times');
+        $this->loadModel('Campeonatos');
+        $campeonatos2 = $this->Campeonatos->find()->all();
+        $times2 = $this->Times->find()->all();
+        $times =array();
+        $i=0;
+        foreach($times2 as $t){
+            $times[$i][$t['id']] = $t['nome'];
+            $i++;
+        }
+        $i=0;
+        foreach($campeonatos2 as $c){
+            $campeonatos[$i][$c['id']] = $c['nome'];
+            $i++;
+        }
+        
+        $this->set(compact('jogo','times','campeonatos'));
         $this->set('_serialize', ['jogo']);
     }
 
@@ -83,14 +118,27 @@ class JogosController extends AppController
             $jogo = $this->Jogos->patchEntity($jogo, $this->request->data);
             if ($this->Jogos->save($jogo)) {
                 $this->Flash->success(__('The jogo has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller'=> 'Campeonatos','action' => 'dashboardCampeonato']);
             } else {
                 $this->Flash->error(__('The jogo could not be saved. Please, try again.'));
             }
         }
-        $timeCasas = $this->Jogos->TimeCasas->find('list', ['limit' => 200]);
-        $timeForas = $this->Jogos->TimeForas->find('list', ['limit' => 200]);
-        $this->set(compact('jogo', 'timeCasas', 'timeForas'));
+        $this->loadModel('Times');
+        $this->loadModel('Campeonatos');
+        $campeonatos2 = $this->Campeonatos->find()->all();
+        $times2 = $this->Times->find()->all();
+        $times =array();
+        $i=0;
+        foreach($times2 as $t){
+            $times[$i][$t['id']] = $t['nome'];
+            $i++;
+        }
+        $i=0;
+        foreach($campeonatos2 as $c){
+            $campeonatos[$i][$c['id']] = $c['nome'];
+            $i++;
+        }
+        $this->set(compact('jogo','campeonatos','times'));
         $this->set('_serialize', ['jogo']);
     }
 
@@ -110,6 +158,6 @@ class JogosController extends AppController
         } else {
             $this->Flash->error(__('The jogo could not be deleted. Please, try again.'));
         }
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['controller'=> 'Campeonatos','action' => 'dashboardCampeonato']);
     }
 }

@@ -16,9 +16,7 @@ class JogosControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'app.jogos',
-        'app.time_casas',
-        'app.time_foras'
+        'app.jogos'
     ];
 
     /**

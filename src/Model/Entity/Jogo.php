@@ -8,12 +8,10 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property int $rodada
- * @property int $time_casa_id
- * @property \App\Model\Entity\TimeCasa $time_casa
- * @property int $time_fora_id
- * @property \App\Model\Entity\TimeFora $time_fora
- * @property int $gol_time_casa
- * @property int $gol_time_fora
+ * @property int $casa
+ * @property int $fora
+ * @property int $golcasa
+ * @property int $golfora
  */
 class Jogo extends Entity
 {

@@ -91,14 +91,14 @@
             <div id="page-inner">
                     <div class="row">
                         <div class="col-lg-12">
-                         <h2>Campeonatos</h2>   
+                         <h2>Time</h2>   
                         </div>
                     </div>              
                       <hr />
                     <div class="row">
                         <div class="col-lg-12 ">
                             <div class="alert alert-info">
-                                 <strong>Detalhes do campeonato </strong>
+                                 <strong>Detalhes do time </strong>
                             </div>                       
                         </div>
                     </div> 

@@ -24,9 +24,7 @@ class JogosTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.jogos',
-        'app.time_casas',
-        'app.time_foras'
+        'app.jogos'
     ];
 
     /**
@@ -69,16 +67,6 @@ class JogosTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test buildRules method
-     *
-     * @return void
-     */
-    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

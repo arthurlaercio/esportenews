@@ -87,6 +87,20 @@
                     </li>
                     <li >
                         <?php echo $this->Html->link(
+                                'Adicionar jogos ao Campeonato',
+                                ['controller' => 'Jogos', 'action' => 'add', '_full' => true]
+                            );
+                        ?>
+                    </li>
+                    <li >
+                        <?php echo $this->Html->link(
+                                'Visualizar jogos do Campeonato',
+                                ['controller' => 'Jogos', 'action' => 'index', '_full' => true]
+                            );
+                        ?>
+                    </li>
+                    <li >
+                        <?php echo $this->Html->link(
                                 'Excluir Campeonato',
                                 ['controller' => 'Campeonatos', 'action' => 'delete',$campeonato->id, '_full' => true],
                                 ['confirm' => __('Tem certeza que deseja deletar?', $campeonato->id)]
