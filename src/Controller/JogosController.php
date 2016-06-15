@@ -24,8 +24,7 @@ class JogosController extends AppController
         $campeonatos2 = $this->Campeonatos->find()->all();
         $times2 = $this->Times->find()->all();
         $times =array();
-     
-       
+      
         foreach ($jogos as $jogo){
             foreach($times2 as $t){
                 if($jogo['casa'] == $t['id']){
@@ -40,7 +39,7 @@ class JogosController extends AppController
                     $jogo['rodada'] = $c['nome'];
                 }
            
-        }
+             }
         }
         //pr($jogos);exit;
         $this->set(compact('jogos','times','campeonatos'));
