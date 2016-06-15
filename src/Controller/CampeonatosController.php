@@ -219,6 +219,7 @@ class CampeonatosController extends AppController
                 }
             }
         }
+        
         //pr($tabela);exit;
         $this->set('campeonato', $campeonato);
         $this->set(compact('tabela'));

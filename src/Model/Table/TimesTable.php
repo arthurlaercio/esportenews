@@ -74,9 +74,9 @@ class TimesTable extends Table
             ->requirePresence('nome_estadio', 'create')
             ->notEmpty('nome_estadio');
 
-        $validator
+        /*$validator
             ->requirePresence('imagem', 'create')
-            ->notEmpty('imagem');
+            ->notEmpty('imagem');*/
 
         return $validator;
     }
